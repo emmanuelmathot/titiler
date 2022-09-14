@@ -197,17 +197,17 @@ jobs:
           python -m pip install -r requirements.txt
 
       # Let's wait a bit to make sure package is available on pypi
-      - name: Sleep for 60 seconds
-        run: sleep 60s
-        shell: bash
+      # - name: Sleep for 60 seconds
+      #   run: sleep 60s
+      #   shell: bash
 
       # Build and Deploy CDK application
-      - name: Build & Deploy
-        run: npm run cdk deploy ${{ secrets.STACK_NAME }}-lambda-${{ secrets.STACK_STAGE }} --require-approval never
-        env:
-          TITILER_STACK_NAME: ${{ secrets.STACK_NAME }}
-          TITILER_STACK_STAGE: ${{ secrets.STACK_STAGE }}
-          TITILER_STACK_MEMORY: ${{ secrets.STACK_MEMORY }}
-          TITILER_STACK_OWNER: ${{ secrets.STACK_OWNER }}
-          TITILER_STACK_CLIENT: ${{ secrets.STACK_CLIENT }}
-          TITILER_STACK_BUCKETS: ${{ secrets.STACK_BUCKETS }}
+      # - name: Build & Deploy
+      #   run: npm run cdk deploy ${{ secrets.STACK_NAME }}-lambda-${{ secrets.STACK_STAGE }} --require-approval never
+      #   env:
+      #     TITILER_STACK_NAME: ${{ secrets.STACK_NAME }}
+      #     TITILER_STACK_STAGE: ${{ secrets.STACK_STAGE }}
+      #     TITILER_STACK_MEMORY: ${{ secrets.STACK_MEMORY }}
+      #     TITILER_STACK_OWNER: ${{ secrets.STACK_OWNER }}
+      #     TITILER_STACK_CLIENT: ${{ secrets.STACK_CLIENT }}
+      #     TITILER_STACK_BUCKETS: ${{ secrets.STACK_BUCKETS }}
