@@ -72,7 +72,8 @@ jobs:
       - name: Load container image in kind cluster
         run: |
           kind get clusters
-          kind load docker-image titiler:dev --context kind-chart-testing
+          kind --help
+          kind load docker-image titiler:dev --name chart-testing
 
       - name: Run chart-testing (install)
         run: ct install --all --chart-dirs deployment/k8s --helm-extra-args "--set=image.tag=dev --set=image.repository=titiler" 
