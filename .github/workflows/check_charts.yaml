@@ -31,14 +31,6 @@ jobs:
             exit 1;
           fi
 
-      - name: Wait for CI to succeed
-        uses: lewagon/wait-on-check-action@v1.0.0
-        with:
-          ref: ${{ github.ref }}
-          check-name: 'Run tests'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-
       - name: Set up Helm
         uses: azure/setup-helm@v1
         with:
