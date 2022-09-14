@@ -69,8 +69,8 @@ jobs:
         uses: helm/kind-action@v1.2.0
         # if: steps.list-changed.outputs.changed == 'true'
 
-      - name: list images
-        run: docker images ls -a
+      - name: load built image
+        run: kind load docker-image titiler:dev
 
       - name: Run chart-testing (install)
         run: ct install --all --chart-dirs deployment/k8s --helm-extra-args "--set=image.tag=dev --set=image.repository=titiler" 
