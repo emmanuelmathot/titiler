@@ -70,7 +70,9 @@ jobs:
         # if: steps.list-changed.outputs.changed == 'true'
 
       - name: Load container image in kind cluster
-        run: kind load docker-image titiler:dev --context kind-chart-testing
+        run: |
+          kind get clusters
+          kind load docker-image titiler:dev --context kind-chart-testing
 
       - name: Run chart-testing (install)
         run: ct install --all --chart-dirs deployment/k8s --helm-extra-args "--set=image.tag=dev --set=image.repository=titiler" 
