@@ -74,4 +74,4 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
-        run: ct install --chart-dirs deployment/k8s --helm-extra-args "--set=image.tag=dev --set=image.repository=titiler" 
+        run: ct install --chart-dirs deployment/k8s
